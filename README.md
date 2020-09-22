@@ -60,7 +60,7 @@ Since OHM uses OpenAPI for its controls, libraries that can handle this format s
 
 ## Demo OHM application
 
-You can find a demo application implementing OHM [here](https://rest-openapi-demo.herokuapp.com). ([source code](https://github.com/cbornet/sample-rest-app))
+You can find a demo application implementing OHM [here](https://rest-openapi-demo.herokuapp.com) ([source code](https://github.com/cbornet/sample-rest-app)).
 As a truly RESTful application, it can be run from any OHM client without any prior knowledge or specific code in the client about the application.
 An OHM browser based on a modified Swagger-UI is served by the application for convenience but any other OHM browser would be able to control the application.
 

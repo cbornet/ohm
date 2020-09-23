@@ -54,7 +54,6 @@ The media-type for the OHM format shall be `application/ohm+json`.
 
 [Open a swagger-UI based OHM browser](https://raw.githack.com/cbornet/swagger-ui/ohm/dist/)
 
-
 Being a level 3 RESTful format respecting HATEOAS, it is possible to design clients that can work with any OHM API.
 Since OHM uses OpenAPI for its controls, libraries that can handle this format such as [Swagger-Client](https://github.com/swagger-api/swagger-js) and even slightly modify the famous [Swagger-UI](https://github.com/swagger-api/swagger-ui) can be used to browse an OHM API.
 
@@ -66,15 +65,13 @@ An OHM browser based on a modified Swagger-UI is served by the application for c
 
 ## Rationale behind OHM format
 
-The OHM format aims at easily transitionning from HTTP-JSON APIs to more RESTful APIs. 
+The OHM format aims at easily transitionning from HTTP-JSON APIs to more RESTful APIs. You can transform your HTTP-JSON to an OHM one by just encapsulating the response body in the `content` field and use it as is. Then the controls can be added progressively and but the client has no obligation to use them.
 
-The steps for transition would be:
-* first put the current payload of the endpoints in the `content` field without modification and change the response content-type to `application/ohm+json`
-* adapt the client (React/Angular/Vue) application to dereference the `content` field when getting responses from the server. Note that the OHM format can perfectly work with non level 3 RESTful applications that use static routes.
-* then add controls in the `controls` field progressively to enrich the OHM application.
-* ensure that there's a resource that can be considered as an entry point and from which any resource of the application can be accessed via other resources.
+OHM has a lot of similarities with other Hypermedia formats.
+Its advantage is that it is based on OpenAPI, an open standard, widely adopted, with a lot of available resources and libraries.
 
-OHM has a lot of similarities with Hyper-Schema but it uses OpenAPI to describe the links instead of LDOs.
-The advantage is that since OpenAPI has been widely adopted, there's a lot of resource and libraries available.
-OpenAPI has also proven to be very versatile to describe any type of HTTP operations while LDOs have some limitations.
-Also by relying on an existing standard it makes the OHM specification very lightweight and familiar when you know OpenAPI.
+OpenAPI has proven to be very versatile to describe any type of HTTP operations where other formats only describe safe (GET) operations or have some limitations on what they can describe.
+
+OpenAPI helps with documenting the transitions comprehensively. So the user has better information on how to use them without the need for an external documentation.
+
+By relying on an existing standard it makes the OHM specification very lightweight and familiar when you know OpenAPI.
